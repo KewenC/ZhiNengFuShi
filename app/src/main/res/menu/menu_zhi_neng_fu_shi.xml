@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.songt.zhinengfushi.ZhiNengFuShi">
+    <item
+        android:id="@+id/action_open"
+        android:orderInCategory="100"
+        android:title="开启蓝牙"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_find_paired_device"
+        android:orderInCategory="100"
+        android:title="查询配对设备"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_find_device"
+        android:orderInCategory="100"
+        android:title="搜索设备"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_connect_device"
+        android:orderInCategory="100"
+        android:title="连接设备"
+        app:showAsAction="never" />
+</menu>

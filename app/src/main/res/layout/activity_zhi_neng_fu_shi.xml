@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/BeibuShow"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="背部温度显示"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="#6d7edb"/>
+    <TextView
+        android:id="@+id/YaobuShow"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="腰部温度显示"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="#6d7edb"/>
+    <TextView
+        android:id="@+id/ZuofuShow"
+        android:layout_marginTop="240dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="左腹温度显示"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="#6d7edb"/>
+    <TextView
+        android:id="@+id/YoufuShow"
+        android:layout_marginTop="320dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="右腹温度显示"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="#6d7edb"/>
+
+    <LinearLayout
+        android:id="@+id/gearLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_weight="1"
+            android:padding="32dp"
+            android:text="低档" />
+
+        <Button
+            android:id="@+id/btnZhong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_weight="1"
+            android:padding="32dp"
+            android:text="中档" />
+        <Button
+            android:id="@+id/btnGao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_weight="1"
+            android:padding="32dp"
+            android:text="高档" />
+    </LinearLayout>
+
+    <Button
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/gearLinLayout"
+        android:id="@+id/Lanya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:text="设置"/>
+</RelativeLayout>
