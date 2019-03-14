@@ -103,6 +103,7 @@ public class ZhiNengFuShi extends AppCompatActivity {
             startActivity(settintIntent);
             return true;
         } else if (id == R.id.action_connect_device){
+            if (devices.size() <= 0) return true;
             String[] devs = new String[devices.size()];
             for (int i=0;i<devs.length;i++){
                 devs[i] = devices.get(i);
@@ -211,26 +212,39 @@ public class ZhiNengFuShi extends AppCompatActivity {
             try {
                 tmp = device.createRfcommSocketToServiceRecord(UUID.fromString(MY_UUID));
             } catch (IOException e) {
+                Log.e("TAGF","createRfcommSocketToServiceRecord_IOException");
                 e.printStackTrace();
             }
             this.socket = tmp;
         }
 
         public void run() {
-            bluetoothAdapter.cancelDiscovery();
-            try {
-                socket.connect();
-                connectedThread = new ConnectedThread(socket);
-                connectedThread.start();
-            } catch (IOException e) {
-                try {
-                    socket.close();
-                } catch (IOException ee) {
-                    ee.printStackTrace();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    bluetoothAdapter.cancelDiscovery();
+                    try {
+                        socket.connect();
+//                        connectedThread = new ConnectedThread(socket);
+//                        connectedThread.start();
+                    } catch (IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(ZhiNengFuShi.this,"连接失败！",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        Log.e("TAGF","connect_IOException");
+                        try {
+                            socket.close();
+                        } catch (IOException ee) {
+                            ee.printStackTrace();
+                        }
+                        return;
+                    }
+                    //manageConnectedSocket(socket);
                 }
-                return;
-            }
-            //manageConnectedSocket(socket);
+            }).start();
         }
 
         public void cancel() {
